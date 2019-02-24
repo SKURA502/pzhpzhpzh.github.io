@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="一点感想">
+<meta name="description" content="这貌似是我做的第一道黑题呢，还是我ac的第400题。哈哈哈。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="本博客的第一篇文章">
-<meta property="og:url" content="http://yoursite.com/2019/02/21/the_first_post/index.html">
+<meta property="og:title" content="&lt;a href=&quot;https:&#x2F;&#x2F;www.luogu.org&#x2F;problemnew&#x2F;show&#x2F;P4211&quot;_blank&quot;&gt;louguP4211 [LNOI2014]LCA&lt;&#x2F;a&gt;">
+<meta property="og:url" content="http://yoursite.com/2019/02/24/1/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="一点感想">
+<meta property="og:description" content="这貌似是我做的第一道黑题呢，还是我ac的第400题。哈哈哈。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-02-21T05:40:01.714Z">
+<meta property="og:updated_time" content="2019-02-24T13:59:40.656Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="本博客的第一篇文章">
-<meta name="twitter:description" content="一点感想">
+<meta name="twitter:title" content="&lt;a href=&quot;https:&#x2F;&#x2F;www.luogu.org&#x2F;problemnew&#x2F;show&#x2F;P4211&quot;_blank&quot;&gt;louguP4211 [LNOI2014]LCA&lt;&#x2F;a&gt;">
+<meta name="twitter:description" content="这貌似是我做的第一道黑题呢，还是我ac的第400题。哈哈哈。">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/02/21/the_first_post/">
+  <link rel="canonical" href="http://yoursite.com/2019/02/24/1/">
 
 
 
 
 
-  <title>本博客的第一篇文章 | Hexo</title>
+  <title><a href="https://www.luogu.org/problemnew/show/P4211" _blank"="">louguP4211 [LNOI2014]LCA</a> | Hexo</title>
   
 
 
@@ -242,7 +242,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/21/the_first_post/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/24/1/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="pzh">
@@ -259,7 +259,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">本博客的第一篇文章</h1>
+          <h1 class="post-title" itemprop="name headline"><a href="https://www.luogu.org/problemnew/show/P4211" _blank"="">louguP4211 [LNOI2014]LCA</a></h1>
         
 
         <div class="post-meta">
@@ -271,8 +271,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-21T13:02:48+08:00">
-                2019-02-21
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-24T20:47:30+08:00">
+                2019-02-24
               </time>
             
 
@@ -309,12 +309,22 @@
       
 
       
-        <p>一点感想</p>
+        <p>这貌似是我做的第一道黑题呢，还是我ac的第400题。哈哈哈。</p>
 <a id="more"></a>
-<p>很早之前就想开一个博客了，这次总算把它搞完啦，很感谢学长们的帮助，没有他们的帮助我可能就搭不出来这个博客了呢。</p>
-<p>为什么要开这个博客，意义是什么呢？自己想了很久。。。虽然感觉自己今年就有可能退役了，但是感觉这个博客在我的日后的生活中也可以起到很大的作用（就像是写一些记录什么的）。感觉信息竞赛还是一个很靠积累的过程，经常有做过的题目过了一段时间就忘记了，感觉得不到很多的提升。所以就应该写博客把思路记录下来，能便于翻阅，在后期能给我帮上很大的忙。但毕竟自己还是一个刚学oi半年的蒟蒻，和很多大佬完全不能比，自己的做题思路可能比较的蠢笨，希望机房的大佬们不要嘲笑，经常给我提出一些意见呢。</p>
-<p>当然我的博客里面可能也不全是做题记录呀，可能也会把自己给自己写的话记录下来，毕竟我是一个自制力没有那么强的人，很可能没有恒心去做好一个事情，所以就应该给自己写一些话鞭策自己，让自己走上正确的轨道呢。</p>
-<p>又是一学期呢，pzh还是得加油呀，但是现在的pzh有了自己的方向，知道怎么努力了呢。<br>以上是我脑子一热敲出来的一段话呢，但也确实是我想说出来的，感谢您从百忙之中抽出时间来看这个呢。</p>
+<p>很显然，常规的求出每一个lca肯定是不行的。</p>
+<p>在寻求优化的过程中我们可以思考前面几次查询对后面有如何的用处和意义？能不能避免重复的查询呢？这是我做这道题时思考的问题。</p>
+<p>我们再思考一下deep[]数组的含义，也就是指对于该点与根节点的距离。那么对于题目中所给出的l，r，z。我们也可以找到很好的解决方法。</p>
+<p>就像是前缀和一般，将后面 r 所产生的深度减去前面 l 所已产生的深度就是当前这段[l,r]区间中每个点的与z的lca深度之和。如何求这个呢？我们只需要把[l,r]之间的每个点到根节点之间增加1。最后再求出z到根结点之间的总和就行了。这样说可能有点绕，也可以理解为：因为一个点和z必定在lca上方有公共部分，那么求出的值为节点个数（也就是deep的值)。</p>
+<p>那么思路有了复杂度如何优化呢，我们会发现多个区间更改的时候前面会出现重复的部分，那么把区间分为[1,l]和[1,r+1]记录下来，再sort一遍，就能很好的将复杂度降低到了O(nlogn)的层次</p>
+<p>出现的几个小问题:</p>
+<p>1.题目中的节点编号为0~n-1。那么我们进行处理的时候肯定得加一，不然会出现问题。</p>
+<p>2.deep[1]记得赋初值1。</p>
+<p>3.记得[l,r]为一个闭区间，那么相应的r得加一。</p>
+<p>4.记得去膜。。。</p>
+<p>下面是代码哒，里面有注释呢，您们可以借助注释理解。</p>
+<p>(<code>`</code>)</p>
+<p>#include&lt;bits/stdc++.h&gt;<br>using namespace std;<br>int read(){<br>    int res=0,f=1;char ch=’ ‘;<br>    while(!isdigit(ch)){if(ch==’-‘) f=-1;ch=getchar();}<br>    while(isdigit(ch)){res=res<em>10+ch-‘0’;ch=getchar();}<br>    return res</em>f;<br>}<br>const int N=1000005;<br>const int mod=201314;<br>int head[N],to[N],nxt[N],cnt=1;<br>int n,q,e=1;<br>struct node{<br>    int x,id,u;<br>    int flag;<br>}t[N];<br>struct ljpzh{<br>    int l,r;<br>}ans[N];//pzh真的是菜鸡。。。<br>struct zzlnb{<br>    int l,r,sum;<br>    int delta;<br>}g[N];//zzl真的强哒 ！！！<br>void qxx(int x,int y){<br>    cnt++;nxt[cnt]=head[x];head[x]=cnt;to[cnt]=y;<br>}<br>void addque(int l,int r,int z,int k){<br>    t[e].x=l;t[e].u=z;t[e].id=k;<br>    t[e++].flag=false;<br>    t[e].x=r;t[e].u=z;t[e].id=k;<br>    t[e++].flag=true;<br>}//将区间分为两部分记录下来<br>int deep[N],son[N],_size[N],fa[N],belong[N],pos[N],cover[N],id;<br>bool cmp(node a,node b){<br>    if(a.x==b.x) return a.id&lt;b.id;<br>    return a.x&lt;b.x;<br>}<br>void dfs1(int x){<br>    _size[x]=1;<br>    for(register int i=head[x];i;i=nxt[i]){<br>        int k=to[i];<br>        if(k!=fa[x]){<br>            deep[k]=deep[x]+1;<br>            fa[k]=x;<br>            dfs1(k);<br>            _size[x]+=_size[k];<br>            if(_size[k]&gt;_size[son[x]]) son[x]=k;<br>        }<br>    }<br>}<br>void dfs2(int x,int chain){<br>    belong[x]=chain;<br>    pos[x]=cover[x]=++id;<br>    if(son[x]){<br>        dfs2(son[x],chain);<br>        cover[x]=max(cover[x],cover[son[x]]);<br>    }<br>    for(register int i=head[x];i;i=nxt[i]){<br>        int k=to[i];<br>        if(k!=fa[x]&amp;&amp;k!=son[x]){<br>            dfs2(k,k);<br>            cover[x]=max(cover[x],cover[k]);<br>        }<br>    }<br>}<br>void pushup(int x){<br>    g[x].sum=g[x<em>2].sum+g[x</em>2+1].sum;<br>}<br>void pushdown(int x){<br>    if(g[x].delta){<br>        int add=g[x].delta;<br>        g[x<em>2].sum=(g[x</em>2].sum+(g[x<em>2].r-g[x</em>2].l+1)<em>add)%mod;<br>        g[x</em>2+1].sum=(g[x<em>2+1].sum+(g[x</em>2+1].r-g[x<em>2+1].l+1)</em>add)%mod;<br>        g[x<em>2].delta+=add;g[x</em>2+1].delta+=add;<br>        g[x].delta=0;<br>    }<br>}<br>void build(int p,int l,int r){<br>    g[p].l=l;g[p].r=r;<br>    if(l==r){<br>        g[p].sum=0;<br>        return ;<br>    }<br>    int mid=(l+r)/2;<br>    build(p<em>2,l,mid);<br>    build(p</em>2+1,mid+1,r);<br>}<br>void update(int p,int l,int r){<br>    if(g[p].l==l&amp;&amp;g[p].r==r){<br>        g[p].sum=(g[p].sum+(r-l+1))%mod;<br>        g[p].delta+=1;<br>        return ;<br>    }<br>    pushdown(p);<br>    int mid=(g[p].l+g[p].r)/2;<br>    if(mid&gt;=r)update(p<em>2,l,r);<br>    else if(mid&lt;l) update(p</em>2+1,l,r);<br>    else{<br>        update(p<em>2,l,mid);update(p</em>2+1,mid+1,r);<br>    }<br>    pushup(p);<br>}<br>int query(int p,int l,int r){<br>    if(g[p].l==l&amp;&amp;g[p].r==r){<br>        return g[p].sum%mod;<br>    }<br>    pushdown(p);<br>    int mid=(g[p].l+g[p].r)/2;<br>    if(mid&gt;=r)return query(p<em>2,l,r)%mod;<br>    else if(mid&lt;l) return query(p</em>2+1,l,r)%mod;<br>    else {<br>        return (query(p<em>2,l,mid)+query(p</em>2+1,mid+1,r))%mod;<br>    }<br>}<br>void Q_update(int x,int y){<br>    while(belong[x]!=belong[y]){<br>        if(deep[belong[x]]&lt;deep[belong[y]]) swap(x,y);<br>        update(1,pos[belong[x]],pos[x]);<br>        x=fa[belong[x]];<br>    }<br>    if(pos[x]&gt;pos[y]) swap(x,y);<br>    update(1,pos[x],pos[y]);<br>}<br>int Q_query(int x,int y){<br>    int ans=0;<br>    while(belong[x]!=belong[y]){<br>        if(deep[belong[x]]&lt;deep[belong[y]]) swap(x,y);<br>        ans=(ans+query(1,pos[belong[x]],pos[x]))%mod;<br>        x=fa[belong[x]];<br>    }<br>    if(pos[x]&gt;pos[y]) swap(x,y);<br>    return (query(1,pos[x],pos[y])+ans)%mod;<br>}<br>int main(){<br>    n=read();q=read();<br>    for(register int i=2;i&lt;=n;i++){<br>        int k=read()+1;//端点值记得加一<br>        qxx(k,i);<br>    }<br>    deep[1]=1;<br>    dfs1(1);dfs2(1,1);//树刨操作<br>    build(1,1,n);<br>    for(register int i=1;i&lt;=q;i++){<br>        int l=read(),r=read()+1,z=read()+1;<br>        addque(l,r,z,i);//将[l,r]这个区间记录下来，分为两块，一部分为l到z，一部分为r到z。<br>    }<br>    sort(t+1,t+e,cmp);//将存下来的排个序，以保证前面所操作的能为后面所用，和前缀和类似呢<br>    int now=1;<br>    for(register int i=1;i&lt;e;i++){<br>        while(now&lt;=t[i].x){<br>            Q_update(1,now);<br>            now++;<br>        }//将t[i].x之前的和根节点之间每个点打一个标记<br>        int id=t[i].id;<br>        if(t[i].flag) ans[id].r=Q_query(1,t[i].u);<br>        else ans[id].l=Q_query(1,t[i].u);<br>        //分别求出l和r产生的深度<br>    }<br>    for(register int i=1;i&lt;=q;i++){<br>        printf(“%d\n”,(ans[i].r-ans[i].l+mod)%mod);<br>    }<br>    return 0;<br>}</p>
+<p>(<code>`</code>)</p>
 
       
     </div>
@@ -339,15 +349,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/02/21/the_first_post/" rel="next" title="本博客的第一篇文章">
+                <i class="fa fa-chevron-left"></i> 本博客的第一篇文章
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/24/1/" rel="prev" title="<a href=" https:="" www.luogu.org="" problemnew="" show="" p4211"_blank"="">louguP4211 [LNOI2014]LCA</a>">
-                <a href="https://www.luogu.org/problemnew/show/P4211" _blank"="">louguP4211 [LNOI2014]LCA</a> <i class="fa fa-chevron-right"></i>
-              
             
           </div>
         </div>
