@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="​">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-10T15:14:12.611Z">
+<meta property="og:updated_time" content="2019-03-10T15:23:31.411Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="&lt;a href=&quot;https:&#x2F;&#x2F;www.luogu.org&#x2F;problemnew&#x2F;show&#x2F;P2519&quot;&gt;[HAOI2011] problem a&lt;&#x2F;a&gt;">
 <meta name="twitter:description" content="​">
@@ -312,7 +312,7 @@
       
         <p>​          </p>
 <a id="more"></a>
-<p>最先开始的时候对这道题无从下手，感觉不知道怎么做 <del>果然是太菜了</del>。听了学长讲之后才理解。</p>
+<h3 id="HAOI2011-problem-a"><a href="#HAOI2011-problem-a" class="headerlink" title="[HAOI2011]problem a"></a><a href="https://www.luogu.org/problemnew/show/P2519" target="_blank" rel="noopener">[HAOI2011]problem a</a></h3><p>最先开始的时候对这道题无从下手，感觉不知道怎么做 <del>果然是太菜了</del>。听了学长讲之后才理解。</p>
 <p>对于可以改变任何数的正负，那么它原始的值的正负显然是没有任何意义的，那么肯定与它的绝对值有关系。这里我们把绝对值记为h[N].</p>
 <p>对于一个位置i，我们在[1,i-1]和[i+1,n]两段区间中考虑i的值改为负数给这两段区间造成的影响。</p>
 <h5 id="1-i-1-的情况（令a属于该区间）："><a href="#1-i-1-的情况（令a属于该区间）：" class="headerlink" title="[1,i-1] 的情况（令a属于该区间）："></a>[1,i-1] 的情况（令a属于该区间）：</h5><p>当h[a]&lt;h[i]时，将i改为负数，那么h[a]&gt;h[i],即改变逆序对的个数，而h[a]&gt;h[i]时，将i改为负数的话逆序对个数并没有影响。那么只需要统计h[a]&lt;h[i]的情况就好了</p>
@@ -437,7 +437,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -450,7 +450,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
@@ -483,7 +483,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-i-1-的情况（令a属于该区间）："><span class="nav-number">1.</span> <span class="nav-text">[1,i-1] 的情况（令a属于该区间）：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#i-1-n-的情况（令b属于该区间）："><span class="nav-number">2.</span> <span class="nav-text">[i+1,n]的情况（令b属于该区间）：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#HAOI2011-problem-a"><span class="nav-number">1.</span> <span class="nav-text">[HAOI2011]problem a</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-i-1-的情况（令a属于该区间）："><span class="nav-number">1.0.1.</span> <span class="nav-text">[1,i-1] 的情况（令a属于该区间）：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#i-1-n-的情况（令b属于该区间）："><span class="nav-number">1.0.2.</span> <span class="nav-text">[i+1,n]的情况（令b属于该区间）：</span></a></li></ol></li></ol></div>
             
 
           </div>
