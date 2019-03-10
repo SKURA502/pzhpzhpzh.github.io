@@ -345,9 +345,9 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/01/分层图最短路/" rel="prev" title="分层图+最短路">
-                分层图+最短路 <i class="fa fa-chevron-right"></i>
-              </a>
+              <a href="/2019/02/24/散题1/" rel="prev" title="<a href=" https:="" www.luogu.org="" problemnew="" show="" p4211"_blank"="">[LNOI2014]LCA</a>">
+                <a href="https://www.luogu.org/problemnew/show/P4211" _blank"="">[LNOI2014]LCA</a> <i class="fa fa-chevron-right"></i>
+              
             
           </div>
         </div>
@@ -417,7 +417,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -430,7 +430,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
@@ -659,5 +659,24 @@
 
   
 
+  <script>
+var codes=document.getElementsByClassName("cpp");
+        var CodeSymbol=document.createElement('span'),CodeSymbolPic=document.createElement('img'),CodeSymbolText=document.createTextNode('click to view code');
+        var CodeSymbol=document.createElement('span'),CodeSymbolText=document.createTextNode('click to view code');CodeSymbol.classList.add('code-hidden'),CodeSymbol.appendChild(CodeSymbolText);
+        for(var i=0;i<codes.length;i++){
+            if(codes[i].classList.contains('in-line'))continue;
+            codes[i].style.display="none",codes[i].id='code'+i+'main';
+            var now=CodeSymbol.cloneNode(1);
+            now.id='code'+i+'sym',now.onclick=showCode;
+            codes[i].parentNode.insertBefore(now,codes[i]);
+        }
+        
+
+function showCode()
+{
+    var str=new String(this.id).replace(/sym/g,'main');
+    document.getElementById(str).style.display='block',this.style.display='none';
+}
+</script>
 </body>
 </html>
