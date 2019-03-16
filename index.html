@@ -487,7 +487,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/01/分层图最短路/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/01/最短路/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="pzh">
@@ -506,7 +506,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/01/分层图最短路/" itemprop="url">分层图+最短路</a></h1>
+                <a class="post-title-link" href="/2019/03/01/最短路/" itemprop="url">最短路</a></h1>
         
 
         <div class="post-meta">
@@ -560,7 +560,7 @@
           <p>​                                                                                      </p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/03/01/分层图最短路/#more" rel="contents">
+            <a class="btn" href="/2019/03/01/最短路/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -754,7 +754,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/02/21/the_first_post/" itemprop="url">本博客的第一篇文章</a></h1>
+                <a class="post-title-link" href="/2019/02/21/the_first_post/" itemprop="url">Untitled</a></h1>
         
 
         <div class="post-meta">
@@ -805,14 +805,20 @@
 
       
         
-          <p>​       </p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/02/21/the_first_post/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <p>//A-B Problem(aminusb)</p>
+<p>#include&lt;bits/stdc++.h&gt;<br>using namespace std;</p>
+<p>int read(){<br>    int res=0,f=1;char ch=’ ‘;<br>    while(!isdigit(ch)){if(ch==’-‘) f=-1;ch=getchar();}<br>    while(isdigit(ch)){res=res<em>10+ch-‘0’;ch=getchar();}<br>    return res</em>f;<br>}<br>const int N=150005;<br>int T,k=1;<br>long long f1,f2,m1,m2;<br>long long gcd(long long x,long long y){<br>    if(y==0){<br>        return x;<br>    }<br>    else{<br>        return gcd(y,x%y);<br>    }<br>}<br>int main(){<br>    freopen(“aminusb.in”,”r”,stdin);<br>    freopen(“aminusb.out”,”w”,stdout);<br>    T=read();<br>    while(T–){<br>        scanf(“%lld/%lld-%lld/%lld”,&amp;f1,&amp;m1,&amp;f2,&amp;m2);<br>        long long modify;<br>        int judge=1;<br>        long long F=m1<em>m2;<br>        f1=f1</em>m2;f2=f2<em>m1;<br>        long long M=f1-f2;<br>        if(M==0){<br>            printf(“0\n”);continue;<br>        }<br>        if(M==F){<br>            printf(“1\n”);continue;<br>        }<br>        if(M&lt;0&amp;&amp;F&gt;0||M&gt;0&amp;&amp;F&lt;0)judge=-1;<br>        M=abs(M);F=abs(F);<br>        modify=gcd(M,F);M=M/modify;F=F/modify;<br>        M=M</em>judge;<br>        if(F==1){<br>            printf(“%lld\n”,M);continue;<br>        }<br>        printf(“%lld/%lld\n”,M,F);<br>    }<br>    return 0;<br>}<br>/<em><br>3<br>-1/3-1/2<br>10/4-2/2<br>-3/2-1/2
+</em>/<br>//最长链(chain)</p>
+<p>#include&lt;bits/stdc++.h&gt;<br>using namespace std;</p>
+<p>int read(){<br>    int res=0,f=1;char ch=’ ‘;<br>    while(!isdigit(ch)){if(ch==’-‘) f=-1;ch=getchar();}<br>    while(isdigit(ch)){res=res<em>10+ch-‘0’;ch=getchar();}<br>    return res</em>f;<br>}<br>const int N=150005;<br>int n;<br>int maxv;<br>int head[N],to[N<em>4],nxt[N</em>4],cnt=1;<br>void qxx(int x,int y){<br>    cnt++;nxt[cnt]=head[x];head[x]=cnt;to[cnt]=y;<br>}<br>int get_lenth(int x,int fa){<br>    int sum1=0,sum2=0;<br>    for(register int i=head[x];i;i=nxt[i]){<br>        int k=to[i];<br>        if(k==fa) continue;<br>        sum2=max(sum2,get_lenth(k,x)+1);<br>        if(sum2&gt;sum1){<br>            swap(sum1,sum2);<br>        }<br>    }<br>    maxv=max(maxv,sum1+sum2);<br>    return sum1;<br>}<br>int main(){<br>    freopen(“chain.in”,”r”,stdin);<br>    freopen(“chain.out”,”w”,stdout);<br>    n=read();<br>    for(register int i=1;i&lt;=n;i++){<br>        int a=read(),b=read();<br>        if(a!=0)qxx(i,a),qxx(a,i);<br>        if(b!=0)qxx(b,i),qxx(i,b);<br>    }<br>    get_lenth(1,0);<br>    printf(“%d”,maxv);<br>    return 0;<br>}<br>/<em><br>11<br>2 3<br>4 0<br>5 8<br>0 0<br>6 7<br>0 0<br>0 0<br>0 9<br>10 11<br>0 0<br>0 0<br>5
+</em>/<br>//生日礼物(gift)</p>
+<p>#include&lt;bits/stdc++.h&gt;<br>using namespace std;</p>
+<p>int read(){<br>    int res=0,f=1;char ch=’ ‘;<br>    while(!isdigit(ch)){if(ch==’-‘) f=-1;ch=getchar();}<br>    while(isdigit(ch)){res=res<em>10+ch-‘0’;ch=getchar();}<br>    return res</em>f;<br>}<br>const int N=1000005;<br>int n;<br>int sum[N],tot,dp[N];<br>int main(){<br>    freopen(“gift.in”,”r”,stdin);<br>    freopen(“gift.out”,”w”,stdout);<br>    n=read();<br>    for(register int i=1;i&lt;=n;i++){<br>        int a=read(),b=read();<br>        sum[i]=abs(a-b);tot+=sum[i];<br>    }<br>    dp[0]=1;<br>    for(register int i=1;i&lt;=n;i++){<br>        for(register int j=tot/2;j&gt;=0;j–){<br>            if(dp[j]){<br>                dp[j+sum[i]]=1;<br>            }<br>        }<br>    }<br>    for(register int i=tot/2;i&gt;=1;i–){<br>        if(dp[i]){<br>            printf(“%d\n”,abs(tot-i<em>2));break;<br>        }<br>    }<br>    return 0;<br>}<br>/</em><br>3<br>-1/3-1/2<br>10/4-2/2<br>-3/2-1/2<br>*/<br>//</p>
+<p>#include&lt;bits/stdc++.h&gt;<br>using namespace std;</p>
+<p>int read(){<br>    int res=0,f=1;char ch=’ ‘;<br>    while(!isdigit(ch)){if(ch==’-‘) f=-1;ch=getchar();}<br>    while(isdigit(ch)){res=res<em>10+ch-‘0’;ch=getchar();}<br>    return res</em>f;<br>}<br>const int N=150005;<br>const int inf=1e9;<br>int n,m,a[N];<br>int f[1005][1005];<br>void update(int x){<br>    for(register int i=0;i&lt;n;i++){<br>        for(register int j=0;j&lt;n;j++){<br>            if(f[i][j]&gt;f[i][x]+f[j][x]){<br>                f[i][j]=f[j][i]=f[i][x]+f[j][x];<br>            }<br>        }<br>    }<br>}<br>int main(){<br>    n=read();m=read();<br>    for(register int i=0;i&lt;n;i++){<br>        a[i]=read();<br>    }<br>    for(register int i=0;i&lt;n;i++){<br>        for(register int j=0;j&lt;n;j++){<br>            f[i][j]=inf;<br>        }<br>    }<br>    for(register int i=0;i&lt;n;i++) f[i][i]=0;<br>    for(register int i=1;i&lt;=m;i++){<br>        int x=read(),y=read(),z=read();<br>        f[x][y]=f[y][x]=z;<br>    }<br>    int Q=read(),now=0;<br>    for(register int i=1;i&lt;=Q;i++){<br>        int x=read(),y=read(),z=read();<br>        while(a[now]&lt;=z&amp;&amp;now&lt;n){<br>            update(now);<br>            now++;<br>        }<br>        if(a[x]&gt;z||a[y]&gt;z){<br>            printf(“-1\n”);<br>        }<br>        else{<br>            if(f[x][y]==inf){<br>                printf(“-1\n”);<br>            }<br>            else{<br>                printf(“%d\n”,f[x][y]);<br>            }<br>        }<br>    }<br>    return 0;<br>}</p>
+
+          
         
       
     </div>
