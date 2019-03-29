@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="​">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-25T14:43:14.295Z">
+<meta property="og:updated_time" content="2019-03-29T14:49:10.497Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="赛道修建">
 <meta name="twitter:description" content="​">
@@ -313,11 +313,18 @@
         <p>​           </p>
 <a id="more"></a>
 <p><a href="https://www.luogu.org/problemnew/show/P5021" target="_blank" rel="noopener">[Noip2018 day1 t3] 赛道修建</a>]</p>
-<p>距离noip2018过了有一段时间呢，突然回想过去的noip，真的是一段惨痛的经历，感觉自己并没有达到自己对自己的期望呢，还是得加油啊！</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>C 城将要举办一系列的赛车比赛。在比赛前，需要在城内修建 m<em>m</em> 条赛道。</p>
+<p>C 城一共有 n 个路口，这些路口编号为 1,2,…,n，有n−1 条适合于修建赛道的双向通行的道路，每条道路连接着两个路口。其中，第 i 条道路连接的两个路口编号为 a<sub>i </sub> 和 b<sub>i</sub>，该道路的长度为 l<sub>i</sub>。借助这 n-1条道路，从任何一个路口出发都能到达其他所有的路口。</p>
+<p>一条赛道是一组互不相同的道路 e<sub>1</sub>,e<sub>2</sub>,…,e<sub>k</sub>，满足可以从某个路口出发，依次经过 道路 e<sub>1</sub>,e<sub>2</sub>,…,e<sub>k</sub>（每条道路经过一次，不允许调头）到达另一个路口。一条赛道的长度等于经过的各道路的长度之和。为保证安全，要求每条道路至多被一条赛道经过。</p>
+<p>目前赛道修建的方案尚未确定。你的任务是设计一种赛道修建的方案，使得修建的 m 条赛道中长度最小的赛道长度最大（即 m 条赛道中最短赛道的长度尽可能大）</p>
+<h2 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h3><p>输入文件第一行包含两个由空格分隔的正整数 n,m，分别表示路口数及需要修建的 赛道数。</p>
+<p>接下来 n-1行，第 i 行包含三个正整数 a<sub>i</sub>, b<sub>i</sub> ,l<sub>i</sub>, 表示第 i 条适合于修建赛道的道 路连接的两个路口编号及道路长度。保证任意两个路口均可通过这 n-1 条道路相互到达。每行中相邻两数之间均由一个空格分隔。</p>
+<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><p>输出共一行，包含一个整数，表示长度最小的赛道长度的最大值。</p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>距离noip2018过了有一段时间呢，突然回想过去的noip，真的是一段惨痛的经历，感觉自己并没有达到自己对自己的期望呢，还是得加油啊！</p>
 <p>那么来看看这道题，出题人还是很心善的，部分分给的很全面，但是我在考场上只拿了30分 <del>真的是菜啊</del>。</p>
 <p>先从题意入手，题目中要我们在整个图中找到m条路，并且使其中长度最小的最大。最小的最大，那么又是一道用二分求解的题？</p>
 <p>开始想了这么多了，就开始讲讲思路吧，这题是一道链上二分的题，我们二分一下最小的赛道长度，每次进行一次判断，每次大于了mid就ans++，最后看看ans与m的大小比较，如果ans较大，则此时的mid并不为长度最小的(也同样可以理解为这几段中多出来的可以加在较短的段上，使mid并不为长度最小的线段)，那么答案可以继续增大，如果m较大，则取到mid的线段不足m个，则答案要减小。</p>
-<p>下面借助几步份代码理解一下：</p>
+<p>下面借助几部份代码理解一下：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">register</span> <span class="keyword">int</span> i=head[x];i;i=nxt[i])&#123;</span><br><span class="line">        <span class="keyword">int</span> t=to[i];</span><br><span class="line">        <span class="keyword">if</span>(t==fa) <span class="keyword">continue</span>;</span><br><span class="line">        val=dfs(t,x,mid)+w[i];</span><br><span class="line">        <span class="keyword">if</span>(val&gt;=mid) ans++;</span><br><span class="line">        <span class="keyword">else</span> s[x].insert(val);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这一部分就是把自己子节点中的最大值更新过来，如果此时的长度大于了mid，那么现在这几段就可以拼在一起，直接ans++即可。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> Max=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(!s[x].empty())&#123;</span><br><span class="line">        <span class="keyword">if</span>(s[x].size()==<span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> max(Max,*s[x].begin());</span><br><span class="line">        &#125;</span><br><span class="line">        it=s[x].lower_bound(mid-*s[x].begin());</span><br><span class="line">        <span class="keyword">if</span>(it==s[x].begin()&amp;&amp;s[x].count(*it)==<span class="number">1</span>) it++;</span><br><span class="line">        <span class="keyword">if</span>(it==s[x].end())&#123;</span><br><span class="line">            Max=max(Max,*s[x].begin());</span><br><span class="line">            s[x].erase(s[x].find(*s[x].begin()));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            ans++;</span><br><span class="line">            s[x].erase(s[x].find(*it));</span><br><span class="line">            s[x].erase(s[x].find(*s[x].begin()));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">return</span> Max;</span><br></pre></td></tr></table></figure>
@@ -418,8 +425,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -472,6 +488,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入输出格式"><span class="nav-number">2.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入格式"><span class="nav-number">2.1.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出格式"><span class="nav-number">2.2.</span> <span class="nav-text">输出格式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-number">3.</span> <span class="nav-text">解题思路</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
