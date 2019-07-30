@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="​">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-13T07:19:57.444Z">
+<meta property="og:updated_time" content="2019-07-30T08:21:28.590Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="最短路">
 <meta name="twitter:description" content="​">
@@ -345,8 +345,8 @@
 <p>那么开始说说这道题目，我们一般来说，floyd的思路是三层循环，就像这样:</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">register</span> <span class="keyword">int</span> k=<span class="number">1</span>;k&lt;=n;k++)</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">register</span> <span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">register</span> <span class="keyword">int</span> k=<span class="number">1</span>;k&lt;=n;k++)</span><br><span class="line">            <span class="keyword">if</span>(f[i][j]&gt;f[i][k]+f[k][j])</span><br><span class="line">                f[i][j]=f[i][k]+f[k][j]</span><br></pre></td></tr></table></figure>
 <p>我们来思考一下它的本身含义，每一次找到一个点k，再以这个点将所有点之间的距离更新。就是代码中的:</p>
-<p>​                                                              <strong>f [ i ] [ j ] &gt; f [ i ] [ k ] + f [ k ] [ j ] </strong></p>
-<p>理解了floyd的含义，我们来思考一下这道题，出题人很好心，他告诉我们查询的时候，时间是依此增加的，那么这有什么意义呢？每一次时间增加的时候都会有点被释放出来，也就是通车， 那么结合floyd的含义来看，此时就可以以当前这个点为中转点来进行更新，也就是下面这个update函数:</p>
+<script type="math/tex; mode=display">
+ f [ i ] [ j ] > f [ i ] [ k ] + f [ k ] [ j ]</script><p>理解了floyd的含义，我们来思考一下这道题，出题人很好心，他告诉我们查询的时候，时间是依此增加的，那么这有什么意义呢？每一次时间增加的时候都会有点被释放出来，也就是通车， 那么结合floyd的含义来看，此时就可以以当前这个点为中转点来进行更新，也就是下面这个update函数:</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">register</span> <span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">register</span> <span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)</span><br><span class="line">            <span class="keyword">if</span>(f[i][j]&gt;f[i][x]+f[j][x])</span><br><span class="line">                f[i][j]=f[j][i]=f[i][x]+f[j][x];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>那么就是以x为中转点进行更新。</p>
 <p>在下面查询的时候，只需要把第t天前面的点都更新好，再来判断或者输出就行了。</p>
@@ -727,6 +727,26 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
